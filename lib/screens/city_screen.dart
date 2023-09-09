@@ -7,18 +7,19 @@ class CityScreen extends StatefulWidget {
 }
 
 class _CityScreenState extends State<CityScreen> {
-  String cityName='';
+  String cityName = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration:const  BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('images/city.png'),
             fit: BoxFit.cover,
           ),
         ),
-        constraints:const  BoxConstraints.expand(),
+        constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
             children: <Widget>[
@@ -34,62 +35,54 @@ class _CityScreenState extends State<CityScreen> {
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(20.0),
-
+              Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: TextField(
-                  onChanged: (value){
-                      cityName=value;
-
+                  onChanged: (value) {
+                    setState(() {
+                      cityName = value;
+                    });
                   },
                   style: TextStyle(
-                    color: Colors.black
+                    color: Colors.black,
                   ),
-
-                  decoration:  InputDecoration(
-                    iconColor: Colors.green,
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.location_city,
+                      size: 30.0,
+                      color: Colors.green,
+                    ),
                     filled: true,
                     fillColor: Colors.white,
-                    icon:Icon(
-                        Icons.location_city,
-                      size: 30.0,
-                    ),
-
                     hintText: 'Enter City Name',
-                    hintStyle:TextStyle(
+                    hintStyle: const TextStyle(
                       color: Colors.grey,
-
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide(
-                        width:1.5,
-                        color: Colors.grey
-                      )
-
-                    )
-
+                      borderSide: const BorderSide(
+                        width: 1.5,
+                        color: Colors.grey,
+                      ),
+                    ),
                   ),
                 ),
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pop(context,cityName);
+                  Navigator.pop(context, cityName);
                 },
-                child: SafeArea(
-                  child: Container(
-
-                    child: Center(
-                      child: Text(
-                        'Get Weather',
-                        style: kButtonTextStyle,
-                      ),
-                    ),
-                    width: 200.0,
-
-                    decoration: BoxDecoration(
-                    color:Colors.black38,
-                      borderRadius: BorderRadius.circular(10.0)
+                child: Container(
+                  width: 200.0,
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: Colors.black38,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Get Weather',
+                      style: kButtonTextStyle,
                     ),
                   ),
                 ),

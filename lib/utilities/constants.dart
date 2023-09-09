@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 const kMessageTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
-  fontSize: 60.0,
+  fontSize: 59.0,
 );
 
 const kButtonTextStyle = TextStyle(

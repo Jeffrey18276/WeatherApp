@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'location_screen.dart';
-import 'package:path/path.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:clima/services/weather.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -10,35 +10,49 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  double latitude = 0.0;
-  double longitude = 0.0;
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getLocation();
   }
 
   void getLocation() async {
-    WeatherModel weatherModel =  WeatherModel();
-    var weatherdata = await weatherModel.getLocationWeather();
+    WeatherModel weatherModel = WeatherModel();
+    var weatherData = await weatherModel.getLocationWeather();
 
     Navigator.push(this.context, MaterialPageRoute(builder: (context) {
       return LocationScreen(
-        locationWeather: weatherdata,
+        locationWeather: weatherData,
       );
     }));
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Center(
-      child: SpinKitChasingDots(
-        color: Colors.white,
-        size: 70.0,
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SpinKitChasingDots(
+              color: Colors.white,
+              size: 70.0,
+            ),
+            SizedBox(height: 75),
+            AnimatedTextKit(
+              animatedTexts: [
+                WavyAnimatedText(
+                  'Loading...',
+                  textStyle: const TextStyle(
+                    fontSize: 40.0,
+                    color: Colors.blueAccent
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
