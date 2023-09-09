@@ -1,16 +1,10 @@
-# clima
+# Weather_App ☁
+This weather app gives the results of the weather according to the geographical location you are in. It uses https://openweathermap.org/api to fetch the current weather,wind humidity and pressure.
 
-A new Flutter project.
+# Extra Packages used
+-Animated Text Kit  # used in the loading screen  (https://pub.dev/packages/animated_text_kit)
+-Google Fonts # used in the text (https://pub.dev/packages/google_fonts)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Prerequisites
+- Flutter SDK # (https://docs.flutter.dev/get-started/install)
+- Android Studio || VS Code # (https://developer.android.com/studio?gclid=CjwKCAjwr_CnBhA0EiwAci5sipoc9AkpJGnFn6tklcw2CWdmBAoU6Soq910DLQGpae56ql_fBHVXthoCCD0QAvD_BwE&gclsrc=aw.ds || https://code.visualstudio.com/download)
